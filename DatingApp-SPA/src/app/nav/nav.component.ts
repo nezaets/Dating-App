@@ -14,7 +14,12 @@ export class NavComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.model).subscribe();
+    this.authService.login(this.model)
+    .pipe(
+  ).subscribe(() => {}, error => {
+     console.log(error);
+      }
+    );
   }
 
   logout() {
